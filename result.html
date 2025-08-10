@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <div class="image-preview">
+        <img src="/static/uploads/{{ filename }}" alt="uploaded image" />
+      </div>
+      <div class="predictions">
+        <ol>
+          {% for cls, prob in results %}
+          <li>{{ cls }} — {{ '%.2f'|format(prob*100) }}%</li>
+          {% endfor %}
+        </ol>
+      </div>
+      <a href="/">Predict another image</a>
+    </div>
+  </body>
+</html>
